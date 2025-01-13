@@ -1,9 +1,7 @@
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
-import fileUpload from 'express-fileupload';
-import cookieParser from "cookie-parser"; 
-
-
+import fileUpload from "express-fileupload";
 
 const app = express();
 
@@ -13,14 +11,14 @@ app.use(
         credentials: true,
     })
 );
-app.use(express.json());
-app.use(cookieParser());
 app.use(
     fileUpload({
         useTempFiles: true,
         tempFileDir: "/tmp/",
     })
 );
+app.use(express.json());
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
     res.send("Hello, World!");
@@ -32,12 +30,11 @@ app.use((err, req, res, next) => {
 
 //routes import
 import courseRoutes from "./routes/course.routes.js";
-import userRoutes from './routes/user.routes.js'
-
+import userRoutes from "./routes/user.routes.js";
 
 // routes
 
-app.use("/api/v1",courseRoutes);
+app.use("/api/v1", courseRoutes);
 app.use("/api/v1/auth", userRoutes);
 
 export { app };

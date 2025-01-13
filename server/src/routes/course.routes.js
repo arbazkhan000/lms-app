@@ -12,7 +12,7 @@ const courseRoutes = express.Router();
 courseRoutes.route("/create").post(createCourse);
 
 courseRoutes.route("/update/:courseId").put(updateCourse);
-courseRoutes.route("/delet/:courseId").delete(deletCourse);
-courseRoutes.route("/find").get(getCourse);
+courseRoutes.route("/delete/:courseId").delete(deletCourse);
+courseRoutes.route("/allcourse").get(getCourse);
 
 export default courseRoutes;
