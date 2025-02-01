@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const courseSchema = new mongoose.Schema({
     title: {
@@ -13,22 +13,22 @@ const courseSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    // image: {
-    //     public_id: {
-    //         type: String,
-    //         required: true,
-    //     },
-    //     url: {
-    //         type: String,
-    //         required: true,
-    //     },
-    // },
-    creatorId: {
+    image: {
+        publicId: {
+            type: String,
+            required: true,
+        },
+        url: {
+            type: String,
+            required: true,
+        },
+    },
+    userId: {
         type: mongoose.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
     },
 });
 
-const Course = mongoose.model("Course", courseSchema);
+const Course = mongoose.model('Course', courseSchema);
 
 export default Course;
